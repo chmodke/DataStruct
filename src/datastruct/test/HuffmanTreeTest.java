@@ -1,7 +1,5 @@
 package datastruct.test;
 
-import java.util.Random;
-
 import datastruct.implement.BinTreeLinked;
 import datastruct.implement.BinTreeNode;
 import datastruct.implement.HuffmanTreeNode;
