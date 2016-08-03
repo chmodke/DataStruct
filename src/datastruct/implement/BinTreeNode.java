@@ -1,12 +1,13 @@
 package datastruct.implement;
 
 import datastruct.interfaces.Node;
+import datastruct.interfaces.TreeNode;
 
 /**
  * @author kehao 二叉树存储节点定义，三叉链表
  * @param <E>
  */
-public class BinTreeNode<E> implements Node<E> {
+public class BinTreeNode<E> implements TreeNode<E> {
 	private E data;
 	private BinTreeNode<E> parent;
 	private BinTreeNode<E> lChild;

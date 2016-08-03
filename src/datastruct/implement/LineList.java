@@ -101,8 +101,8 @@ public class LineList<E> implements List<E> {
 	}
 
 	@Override
-	public Object remove(int n) throws OutOfBoundaryException {
-		Object obj = null;
+	public E remove(int n) throws OutOfBoundaryException {
+		E obj = null;
 		if (n < 0 || n > this.size) {
 			throw new OutOfBoundaryException("输入序号非法");
 		}
@@ -129,8 +129,8 @@ public class LineList<E> implements List<E> {
 	}
 
 	@Override
-	public Object replace(int n, E o) throws OutOfBoundaryException {
-		Object obj=null;
+	public E replace(int n, E o) throws OutOfBoundaryException {
+		E obj=null;
 		if(n<0&&n>this.size){
 			throw new OutOfBoundaryException("输入序号非法");
 		}

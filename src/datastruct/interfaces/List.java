@@ -56,7 +56,7 @@ public interface List<E> {
 	 * @param n 移除元素下标
 	 * @return 被移除的元素
 	 */
-	public Object remove(int n) throws OutOfBoundaryException;
+	public E remove(int n) throws OutOfBoundaryException;
 	/**
 	 * 根据元素移除
 	 * @param e 待移除的元素
@@ -69,11 +69,11 @@ public interface List<E> {
 	 * @param e 用来替换的元素
 	 * @return 被替换掉的元素
 	 */
-	public Object replace(int n,E e) throws OutOfBoundaryException;
+	public E replace(int n,E e) throws OutOfBoundaryException;
 	/**
 	 * 获取指定序号的元素
-	 * @param i 要获取的序号
+	 * @param n 要获取的序号
 	 * @return 取到的元素
 	 */
-	public Object get(int n) throws OutOfBoundaryException;
+	public E get(int n) throws OutOfBoundaryException;
 }

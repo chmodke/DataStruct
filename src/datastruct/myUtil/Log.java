@@ -16,7 +16,7 @@ public class Log {
 		sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	}
 
-	public static void logOut(String error) {
+	public static void logOut(String log) {
 		if (!file.exists()) {
 			try {
 				file.createNewFile();
@@ -30,9 +30,9 @@ public class Log {
 			FileOutputStream fos = new FileOutputStream(file, true);
 			osw = new OutputStreamWriter(fos);
 			Date time = new Date();
-			osw.write(sdf.format(time) + " " + error + '\n');
+			osw.write(sdf.format(time) + " " + log + '\n');
 			time = null;
-			error = null;
+			log = null;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			System.out.println("创建输出流失败！！！");

@@ -15,21 +15,17 @@ import datastruct.myUtil.Log;
 public class BinTreeLinkedTest {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		BinTreeLinked<String> Strings = new BinTreeLinked<String>(new BinTreeNode<String>(), new StringStrategy());
-
-		BinTreeNode<String> root = Strings.getRoot();
-		createTree(root);
+		BinTreeNode<String> root = createTree();
+		BinTreeLinked<String> Strings = new BinTreeLinked<String>(root, new StringStrategy());
 
 		System.out.println("isEmpty:" + Strings.isEmpty());
 		System.out.println("size:" + Strings.getSize());
 		System.out.println("height:" + Strings.getHeight());
 		printList(Strings);
-		
-		scan.close();
+		System.out.print("");
 	}
 
-	public static void createTree(BinTreeNode<String> rt) {
+	public static BinTreeNode<String> createTree() {
 		Scanner scan = new Scanner(System.in);
 		List<BinTreeNode<String>> nodeList;
 		System.out.print("输入序列长度:");
@@ -39,6 +35,7 @@ public class BinTreeLinkedTest {
 			System.out.println("输入序列:");
 			array[i] = scan.nextLine();
 		}
+		scan.close();
 		nodeList = new LinkedList<BinTreeNode<String>>();
 		// 将一个数组的值依次转换为Node节点
 		for (int nodeIndex = 0; nodeIndex < array.length; nodeIndex++) {
@@ -60,15 +57,7 @@ public class BinTreeLinkedTest {
 		if (array.length % 2 == 1) {
 			nodeList.get(lastParentIndex).setRChild(nodeList.get(lastParentIndex * 2 + 2));
 		}
-		// BinTreeNode<String> newBin = new BinTreeNode<String>(item);
-		// if(!root.hasLChild()){
-		// root.setLChild(newBin);
-		// createTree(root);
-		// }
-		// if(!root.hasRChild()){
-		// root.setLChild(newBin);
-		// createTree(root.getLChild());
-		// }
+		return nodeList.get(0);
 	}
 
 	public static void printList(BinTreeLinked<String> stus) {
