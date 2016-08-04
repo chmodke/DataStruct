@@ -29,7 +29,7 @@ public class BinTreeLinkedTest {
 		Scanner scan = new Scanner(System.in);
 		List<BinTreeNode<String>> nodeList;
 		System.out.print("输入序列长度:");
-		int n = scan.nextInt();
+		int n = Integer.valueOf(scan.nextLine());
 		String[] array = new String[n];
 		for (int i = 0; i < n; i++) {
 			System.out.println("输入序列:");
