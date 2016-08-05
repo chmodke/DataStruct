@@ -65,28 +65,32 @@ public class UndirectedGraph extends AbstractGraph {
 
 	@Override
 	public void generateMST() {
-		resetVexStatus();
-		resetEdgeType();
+		resetVexStatus();//重置图中各顶点的状态信息
+		resetEdgeType();//重置图中各边的状态信息
 		Iterator<Vertex> it = getVertex();
-		Vertex v = it.currentItem();
+		Vertex v = it.currentItem();//选择第一个顶点作为起点
 		v.setToVisited();
+		//初始化顶点集合S到V-S各顶点的最短横切边
 		for (it.first(); !it.isDone(); it.next()) {
 			Vertex u = it.currentItem();
 			Edge e = edgeFromTo(v, u);
+			//设置到达V-S中顶点u的最短横切边
 			setCrossEdge(u, e);
 		}
+		//进行V-1次循环找到|V|-1条边
 		for (int t = 1; t < getVexNum(); t++) {
-			Vertex k = selectMinVertex(it);
-			k.setToVisited();
-			Edge mst = getCrossEdge(k);
+			Vertex k = selectMinVertex(it);//选择轻边在V-S中的顶点k
+			k.setToVisited();//顶点k加入S
+			Edge mst = getCrossEdge(k);//割(S，V-S)的轻边
 			if (mst != null) {
-				mst.setToMST();
+				mst.setToMST();//将边加入MST
 			}
-			Iterator<Vertex> adjIt = adjVertexs(k);
+			//以k为中间顶点修改S到V-S中顶点的最短横切边
+			Iterator<Vertex> adjIt = adjVertexs(k);//取出k的所有邻接点
 			for (adjIt.first(); !adjIt.isDone(); adjIt.next()) {
 				Vertex adjV = adjIt.currentItem();
 				Edge e = this.edgeFromTo(k, adjV);
-				if (e.getWeight() < getCrossWeight(adjV)) {
+				if (e.getWeight() < getCrossWeight(adjV)) {//发现到达ajdV更短的横切边
 					setCrossEdge(adjV, e);
 				}
 			}
