@@ -144,7 +144,7 @@ public interface Graph {
 	 * @throws UnsupportOperation
 	 *             无向图不支持此操作
 	 */
-	public Iterator<?> toplogicalSort() throws UnsupportOperation;
+	public Iterator<Vertex> toplogicalSort() throws UnsupportOperation;
 
 	/**
 	 * 求有向无环图的关键路径，无向图不支持此操作

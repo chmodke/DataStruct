@@ -7,6 +7,9 @@ import datastruct.interfaces.Node;
  * @author kehao 图的双链式存储结构边定义
  */
 public class Edge {
+	/**
+	 * 常规边
+	 */
 	public static final int NORMAL = 0;
 	/**
 	 * MST边
@@ -16,16 +19,42 @@ public class Edge {
 	 * 关键路径中的边
 	 */
 	public static final int CRITICAL = 2;
-	private int weight;// 权值
-	private Object info;// 边的信息
-	private Node<Edge> edgePosition;// 边在边标中的位置
-	private Node<Vertex> firstVexPosition;// 边的第一顶点在顶点表中的位置
-	private Node<Vertex> secondVexPosition;// 边的第二顶点在顶点表中的位置
-	private Node<Edge> edgeFirstPosition;// 边在第一顶点的邻接(逆邻接)边表中的位置
-	private Node<Edge> edgeSecondPosition;// 边在第二顶点的邻接(逆邻接)边表中的位置
-	// 在无向图中就是在顶点邻接边表中的位置
-	private int type;// 边的类型
-	private int graphType;// 所在图的类型
+	/**
+	 * 权值
+	 */
+	private int weight;
+	/**
+	 * 边的信息
+	 */
+	private Object info;
+	/**
+	 * 边在边表中的位置
+	 */
+	private Node<Edge> edgePosition;
+	/**
+	 * 边两端的顶点位置，边的第一顶点在顶点表中的位置
+	 */
+	private Node<Vertex> firstVexPosition;
+	/**
+	 * 边两端的顶点位置，边的第二顶点在顶点表中的位置
+	 */
+	private Node<Vertex> secondVexPosition;
+	/**
+	 * 此边在两端顶点边链接表中的位置 边在第一顶点的邻接边表中的位置
+	 */
+	private Node<Edge> edgeFirstPosition;
+	/**
+	 * 此边在两端顶点边链接表中的位置 边在第二顶点的逆邻接边表中的位置//在无向图中就是在顶点邻接边表中的位置
+	 */
+	private Node<Edge> edgeSecondPosition;
+	/**
+	 * 边的类型
+	 */
+	private int type;
+	/**
+	 * 所在图的类型
+	 */
+	private int graphType;
 
 	public Edge(Graph g, Vertex u, Vertex v, Object info) {
 		this(g, u, v, info, 1);

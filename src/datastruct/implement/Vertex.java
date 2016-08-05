@@ -8,12 +8,33 @@ import datastruct.interfaces.Node;
  * @author kehao 图的双链式存储结构定点定义
  */
 public class Vertex {
+	/**
+	 * 顶点信息
+	 */
 	private Object info;
+	/**
+	 * 一个顶点可以有多个出度和入度，且数量不确定，故采用链式存储 //出度链表
+	 */
 	private LinkedList<Edge> adjacentEdges;
+	/**
+	 * 一个顶点可以有多个出度和入度，且数量不确定，故采用链式存储 //入度链表
+	 */
 	private LinkedList<Edge> reAdjacentEdges;
+	/**
+	 * 顶点是否被访问
+	 */
 	private boolean visited;
+	/**
+	 * 顶点在顶点链表中个的位置
+	 */
 	private Node<Vertex> vexPosition;// 顶点在顶点表中的位置
+	/**
+	 * 当前图的类型
+	 */
 	private int graphType;
+	/**
+	 * 顶点应用信息
+	 */
 	private Object application;
 
 	public Vertex(Graph g, Object info) {
